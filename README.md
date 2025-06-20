@@ -19,7 +19,14 @@ A RESTful Laravel API application to manage and serve boiler data, built with La
 ###  Installation
 
 ```bash
-composer install
+# Run Sail via Docker:
+docker run --rm \
+  -u "$(id -u):$(id -g)" \
+  -v $(pwd):/var/www/html \
+  -w /var/www/html \
+  laravelsail/php83-composer:latest \
+  composer install
+  
 # Initialize with Laravel Sail
 ./vendor/bin/sail up -d
 ```
