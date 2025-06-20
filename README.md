@@ -19,9 +19,8 @@ A RESTful Laravel API application to manage and serve boiler data, built with La
 ###  Installation
 
 ```bash
-# Clone and initialize with Laravel Sail
-curl -s "https://laravel.build/boiler-api?with=mysql" | bash
-cd boiler-api
+composer install
+# Initialize with Laravel Sail
 ./vendor/bin/sail up -d
 ```
 
