@@ -50,9 +50,20 @@ GLOW_GREEN_API_TOKEN=your-api-token-here
 
 ```bash
 ./vendor/bin/sail artisan migrate
-./vendor/bin/sail artisan passport:install
 ./vendor/bin/sail artisan db:seed
 ```
+If there is an error in migrations:
+* Delete the oauth migration files
+*  Run `./vendor/bin/sail artisan passport:install`
+*  Run `./vendor/bin/sail artisan passport:keys --force`
+
+You will also need to generate user and client details if curling the API.
+
+* Personal Client
+`./vendor/bin/sail artisan passport:client --personal`
+
+* Auth Client
+* `./vendor/bin/sail artisan passport:client --client`
 
 ---
 
@@ -131,7 +142,7 @@ POST /oauth/token
 }
 ```
 
-Use the returned `token` in headers:
+Use the returned `access_token` in headers:
 
 ```http
 Authorization: Bearer {token}
